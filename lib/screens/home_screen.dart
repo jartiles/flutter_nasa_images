@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 //- Provider
 import 'package:provider/provider.dart';
 import 'package:flutter_nasa_images/services/navigation_services.dart';
+import 'package:flutter_nasa_images/services/nasa_services.dart';
+//- Screens
+import 'package:flutter_nasa_images/screens/screens.dart';
 //- Widgets
 import '../widgets/widgets.dart';
 
@@ -10,18 +13,20 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (context) => NavigationServices(),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (context) => NavigationServices()),
+        ChangeNotifierProvider(create: (context) => NasaServices()),
+      ],
       child: const Scaffold(
-        body: _Pages(),
-        bottomNavigationBar: CustomBottomNavigator(),
+        body: ApodScreen(),
       ),
     );
   }
 }
 
-class _Pages extends StatelessWidget {
-  const _Pages({Key? key}) : super(key: key);
+class _Screens extends StatelessWidget {
+  const _Screens({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +35,7 @@ class _Pages extends StatelessWidget {
       controller: navigationService.getPageController,
       physics: const NeverScrollableScrollPhysics(),
       children: [
-        Container(color: Colors.red),
+        const ApodScreen(),
         Container(color: Colors.green),
       ],
     );

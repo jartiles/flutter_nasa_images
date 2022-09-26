@@ -17,6 +17,7 @@ class MyApp extends StatelessWidget {
       routes: {
         '/landing': (context) => const LandingScreen(),
         '/home': (context) => const HomeScreen(),
+        '/detail': (context) => const DetailScreen(),
       },
     );
   }
