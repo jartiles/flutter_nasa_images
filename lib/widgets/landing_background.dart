@@ -6,7 +6,7 @@ class LandingBackground extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: MediaQuery.of(context).size.height * 0.8,
+      height: MediaQuery.of(context).size.height * .75,
       width: double.infinity,
       child: Stack(
         children: const [
@@ -41,7 +41,7 @@ class LandingBackground extends StatelessWidget {
             right: 30,
             child: _AnimatedPlanet(image: 'assets/purple_saturn.png'),
           ),
-          _Astronaut()
+          _Astronaut(),
         ],
       ),
     );

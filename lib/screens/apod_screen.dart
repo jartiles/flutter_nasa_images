@@ -18,14 +18,12 @@ class _ApodScreenState extends State<ApodScreen> with KeepAliveParentDataMixin {
   Widget build(BuildContext context) {
     final nasaServices = Provider.of<NasaServices>(context);
     final apodList = nasaServices.apodList;
-    return Scaffold(
-      body: apodList.isEmpty && nasaServices.isLoading
-          ? const IsLoading()
-          : RefreshIndicator(
-              child: ApodList(apodList: apodList),
-              onRefresh: () => nasaServices.getApodImages(10),
-            ),
-    );
+    return apodList.isEmpty && nasaServices.isLoading
+        ? const IsLoading()
+        : RefreshIndicator(
+            child: ApodList(apodList: apodList),
+            onRefresh: () => nasaServices.reloadApodImages(),
+          );
   }
 
   @override

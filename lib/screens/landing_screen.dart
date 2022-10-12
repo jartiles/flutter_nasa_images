@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 //- Widgets
 import '../widgets/landing_background.dart';
 
@@ -7,26 +8,40 @@ class LandingScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final Uri url = Uri.parse(
+      'https://www.freepik.es/vector-gratis/fondo-dibujado-colorido-espacio_4792328.htm#query=space&position=3&from_view=search',
+    );
     return SafeArea(
       child: Scaffold(
-        body: Container(
-          padding: const EdgeInsets.symmetric(horizontal: 20),
-          decoration: _decorationGradient(),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              const LandingBackground(),
-              const Text(
-                'Conoce el universo con las imagenes de la NASA.',
-                style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
-              ),
-              const SizedBox(height: 10),
-              ElevatedButton(
+        body: SingleChildScrollView(
+          child: Container(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            decoration: _decorationGradient(),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                const LandingBackground(),
+                TextButton(
+                  onPressed: () async {
+                    if (!await canLaunchUrl(url)) return;
+                    await launchUrl(url);
+                  },
+                  child: const Text('Imagen de pikisuperstar en Freepik'),
+                ),
+                const Text(
+                  'Conoce el universo con las imagenes de la NASA.',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
+                ),
+                const SizedBox(height: 10),
+                ElevatedButton(
                   onPressed: () =>
                       Navigator.pushReplacementNamed(context, '/home'),
-                  child: const Text('Exploremos'))
-            ],
+                  child: const Text('Exploremos'),
+                )
+              ],
+            ),
           ),
         ),
       ),

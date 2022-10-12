@@ -6,7 +6,7 @@ import 'package:flutter_nasa_images/models/apod_model.dart';
 
 class NasaServices extends ChangeNotifier {
   final _baseUrl = 'api.nasa.gov';
-  final _apiKey = 'YOUR-TOKEN';
+  final _apiKey = 'YOUR-API-KEY';
   List<ApodModel> apodList = [];
   bool isLoading = false;
 
@@ -23,6 +23,23 @@ class NasaServices extends ChangeNotifier {
     notifyListeners();
     final url = Uri.https(_baseUrl, '/planetary/apod',
         {'count': '$count', 'thumbs': 'true', 'api_key': _apiKey});
+    final response = await http.get(url);
+    final responseBody = json.decode(response.body);
+    if (response.statusCode == 200) {
+      for (final Map<String, dynamic> res in responseBody) {
+        apodList.add(ApodModel.fromMap(res));
+      }
+    }
+    isLoading = false;
+    notifyListeners();
+  }
+
+  Future reloadApodImages() async {
+    apodList.clear();
+    isLoading = true;
+    notifyListeners();
+    final url = Uri.https(_baseUrl, '/planetary/apod',
+        {'count': '10', 'thumbs': 'true', 'api_key': _apiKey});
     final response = await http.get(url);
     final responseBody = json.decode(response.body);
     if (response.statusCode == 200) {

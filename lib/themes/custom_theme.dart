@@ -14,7 +14,7 @@ class CustomTheme {
       style: ElevatedButton.styleFrom(
         shape: const StadiumBorder(),
         elevation: 5,
-        primary: const Color(0xffff0e9d),
+        backgroundColor: const Color(0xffff0e9d),
       ),
     ),
   );
