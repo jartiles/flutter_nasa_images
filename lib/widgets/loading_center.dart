@@ -48,7 +48,7 @@ class _IsLoadingState extends State<IsLoading>
             ),
           ),
           const Text(
-            'Cargando...',
+            'Loading...',
             style: TextStyle(fontSize: 15),
           )
         ],

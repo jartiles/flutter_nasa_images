@@ -6,7 +6,7 @@ import 'package:flutter_nasa_images/models/apod_model.dart';
 
 class NasaServices extends ChangeNotifier {
   final _baseUrl = 'api.nasa.gov';
-  final _apiKey = 'YOUR-API-KEY';
+  final _apiKey = 'YOUR-TOKEN';
   List<ApodModel> apodList = [];
   bool isLoading = false;
 

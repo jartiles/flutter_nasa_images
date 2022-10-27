@@ -19,16 +19,13 @@ class DetailScreen extends StatelessWidget {
             pinned: false,
             expandedHeight: 250,
             flexibleSpace: FlexibleSpaceBar(
-              background: Hero(
-                tag: arguments.title,
-                child: FadeInImage(
-                  fit: BoxFit.cover,
-                  placeholder: const AssetImage('assets/loading.gif'),
-                  image: NetworkImage(
-                    arguments.mediaType == 'video'
-                        ? arguments.thumbnailUrl!
-                        : arguments.url,
-                  ),
+              background: FadeInImage(
+                fit: BoxFit.cover,
+                placeholder: const AssetImage('assets/loading.gif'),
+                image: NetworkImage(
+                  arguments.mediaType == 'video'
+                      ? arguments.thumbnailUrl!
+                      : arguments.url,
                 ),
               ),
             ),

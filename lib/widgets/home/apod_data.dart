@@ -13,12 +13,19 @@ class ApodData extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final orientation = MediaQuery.of(context).orientation;
     final double maxHeight = MediaQuery.of(context).size.height;
     final double maxWidth = MediaQuery.of(context).size.width;
+    double sizeContainer;
+
+    if (maxHeight > 500) {
+      sizeContainer = maxHeight * 0.4;
+    } else {
+      sizeContainer = maxHeight * 0.6;
+    }
+
     return Container(
       decoration: _boxDecoration(),
-      height: maxHeight * (orientation == Orientation.landscape ? .7 : .35),
+      height: sizeContainer,
       width: maxWidth,
       padding: const EdgeInsets.all(30),
       child: _TitleAndData(apodData: apodData),
@@ -36,10 +43,7 @@ class ApodData extends StatelessWidget {
 }
 
 class _TitleAndData extends StatelessWidget {
-  const _TitleAndData({
-    Key? key,
-    required this.apodData,
-  }) : super(key: key);
+  const _TitleAndData({Key? key, required this.apodData}) : super(key: key);
 
   final ApodModel apodData;
 

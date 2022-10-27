@@ -1,16 +1,41 @@
-# flutter_nasa_images
+# Flutter - APOD images from nasa API
 
-A new Flutter project.
+A flutter project using NASA's API to query images of the universe 
 
-## Getting Started
+<div>
+    <img src="https://img.shields.io/badge/Made%20with-flutter-blue">
+    <img src="https://img.shields.io/badge/SDK%20version-%3E%3D2.17.6-orange">
+</div>
 
-This project is a starting point for a Flutter application.
+## Packages
 
-A few resources to get you started if this is your first Flutter project:
+<ul>
+    <li>
+        <a href="https://pub.dev/packages/animate_do" target="_blank">Animate Do</a>
+    </li>
+    <li>
+        <a href="https://pub.dev/packages/http" target="_blank">Http</a>
+    </li>
+    <li>
+        <a href="https://pub.dev/packages/provider" target="_blank">Provider</a>
+    </li>
+    <li>
+        <a href="https://pub.dev/packages/provider" target="_blank">Provider</a>
+    </li>
+    <li>
+        <a href="https://pub.dev/packages/url_launcher" target="_blank">Url Launcher</a>
+    </li>
+</ul>
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Requirements
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+To obtain the images it`s necessary to include the NASA API token. <a href="https://api.nasa.gov/" target="_blank">Get it here.</a> 
+
+Then you must write your token in the line 'YOUR-TOKEN'. Located in the lib/services/nasa_services.dart file.
+
+## Screenshots
+<div>
+<img  width="300" height="650" src="https://res.cloudinary.com/dinz56p67/image/upload/v1666904713/flutter%20nasa%20github/landing_jkcfa6.gif">
+<img width="300" height="650" src="https://res.cloudinary.com/dinz56p67/image/upload/v1666905072/flutter%20nasa%20github/home_j9en94.gif">
+<img width="300" height="650" src="https://res.cloudinary.com/dinz56p67/image/upload/v1666905069/flutter%20nasa%20github/detail_ef9oyj.gif">
+</div>
