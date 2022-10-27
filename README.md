@@ -1,4 +1,4 @@
-# Flutter - APOD images from nasa API
+# Flutter - APOD images from NASA API
 
 A flutter project using NASA's API to query images of the universe 
 
